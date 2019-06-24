@@ -1,0 +1,52 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>NVL-JS-P12b</title>
+</head>
+<body>
+	<script>
+        //Declaramos las diferentes matrices en las que se almacenará la información
+		var matriz = new Array(50);
+        var impares = new Array();
+        var pares = new Array();
+
+        //Función para generar números aleatorios
+        function aleatorio(){
+            return Math.floor((Math.random() * 100) + 1);
+        }
+        //Función para comprobar si el número es par
+        function esPar(numero){
+           return (numero%2 == 0);
+        }
+        //Función para añadir un número a una matriz
+        function addNum(matriz,numero){
+            matriz.push(numero);
+        }
+        
+        //Creamos un bucle que se repita 50 veces
+        for (var i = 0; i < 50; i++) {
+            //Generamos un número aleatorio y lo almacenamos en la posición correspondiente de la matriz principal
+            matriz[i] = aleatorio();
+            //Con una estructura condicional separamos los número pares de los impares
+            if (esPar(matriz[i])){
+                addNum(pares,matriz[i]);
+            }else{
+                addNum(impares,matriz[i]);
+            }
+        }
+
+
+        //Mostramos los datos obtenidos en la página
+        document.write('<h1>Matriz de 50 números aleatorios</h1>');
+        document.write('<p>'+ matriz + '<p>');
+        document.write('<h1>Matriz de números pares</h1>');
+        document.write('<p>'+ pares + '<p>');
+        document.write('<h1>Matriz de números impares</h1>');
+        document.write('<p>'+ impares + '<p>');
+    	
+    </script>
+</body>
+</html>
